@@ -29,8 +29,8 @@ public class TargetGroupMediator implements Mediator{
 
     private void triggerGroupBehavior() {
         System.out.println("All targets hit! Triggering bonus behavior...");
-        Score.getInstance().updateScore(50); // Add bonus score
+        Score.getInstance().updateScore(50); // Adds bonus score
         ramps.forEach(Ramp::setRamp); // switches isUp boolean to opposite
-        targets.forEach(Target::reset);      // Reset all targets
+        targets.forEach(Target::reset);      // Resets all targets
     }
 }
