@@ -1,5 +1,6 @@
 package elements;
 import score.Score;
+import java.util.Random;
 
 public class Target extends FlipperElement{
     private boolean lightOn;
@@ -11,13 +12,16 @@ public class Target extends FlipperElement{
     }
 
     @Override
-    public void hit(){
+    public int hit(){
         if(!lightOn) {
             lightOn = true;
             Score.getInstance().updateScore(10);
             mediator.notifyTargetHit(this);
+        }else {
+            System.out.println("Target hit again, light remains on.");
         }
-        triggerBallMovement();
+
+        return triggerBallMovement();
     }
 
     public boolean isLightOn() {
@@ -28,8 +32,9 @@ public class Target extends FlipperElement{
         this.lightOn = false; // Reset light to off
     }
 
-    private void triggerBallMovement() {
-        System.out.println("Ball shot to next element!");
-        // TODO: .random Funktion für Ball implementieren
+    private int triggerBallMovement() {
+        int nextIndex = new Random().nextInt(9); // Random index from 0 to 8
+        System.out.println("Ball shot to next element! Element index no: " + nextIndex);
+        return nextIndex;
     }
 }
