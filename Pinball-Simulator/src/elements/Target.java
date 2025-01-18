@@ -16,9 +16,10 @@ public class Target extends FlipperElement{
         if(!lightOn) {
             lightOn = true;
             Score.getInstance().updateScore(10);
+            System.out.println("Inaktives Target getroffen, Licht geht an, 10 Punkte werden vergeben.");
             mediator.notifyTargetHit(this);
         }else {
-            System.out.println("Target hit again, light remains on.");
+            System.out.println("Aktives Target nochmal getroffen, Licht bleibt an, keine Punkte zu vergeben.");
         }
 
         return triggerBallMovement();
@@ -34,7 +35,7 @@ public class Target extends FlipperElement{
 
     private int triggerBallMovement() {
         int nextIndex = new Random().nextInt(9); // Random index from 0 to 8
-        System.out.println("Ball shot to next element! Element index no: " + nextIndex);
+        System.out.println("Ball bewegt sich zu Element: " + nextIndex);
         return nextIndex;
     }
 }
