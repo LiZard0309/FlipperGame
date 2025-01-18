@@ -1,9 +1,13 @@
 import elements.*;
+import flipper.Flipper;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+
+        Flipper flipper = new Flipper();
 
         List<FlipperElement> elements = new ArrayList<>(); //Ich geb die mal hier in die Main, aber ich glaube das wäre wahrscheinlich besser eine Property von der Klasse Flipper?
         TargetGroupMediator mediator = new TargetGroupMediator(elements);
@@ -25,7 +29,7 @@ public class Main {
         elements.add(ramp2); //index=5
 
 
-
+flipper.testGame();
 
     }
 }

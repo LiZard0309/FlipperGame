@@ -1,5 +1,5 @@
 package elements;
-import score.Score;
+import util.Score;
 import java.util.Random;
 
 public class Target extends FlipperElement{

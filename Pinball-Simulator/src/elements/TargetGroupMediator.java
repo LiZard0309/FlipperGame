@@ -1,6 +1,6 @@
 package elements;
 import java.util.List;
-import score.Score;
+import util.Score;
 
 public class TargetGroupMediator implements Mediator{
     private List<Target> targets;

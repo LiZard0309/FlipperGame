@@ -1,4 +1,4 @@
-package score;//Score.Score Class als Singleton
+package util;//Score.Score Class als Singleton
 
 public class Score {
 

@@ -1,9 +1,5 @@
 package elements;
 
-import score.Score;
-
-import java.util.Random;
-
 public class Ramp extends FlipperElement {
     private boolean isUp;
 
