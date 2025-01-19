@@ -17,7 +17,7 @@ public class ReadyState extends State {
     @Override
     public void insertCoin() {
         Credit.getInstance().setCredit(1);
-        System.out.println("Coin inserted. Your current credit: " + Credit.getInstance().getCredit());
+        System.out.println("Münze eingeworfen! Aktueller Credit: " + Credit.getInstance().getCredit());
 
     }
 
@@ -30,12 +30,12 @@ public class ReadyState extends State {
                 Round.getInstance().updateRound();
                 Credit.getInstance().setCredit(-1);
                 flipper.setState(new PlayingState(flipper));
-                System.out.println("Game started. Current round: " + Round.getInstance().getRound());
+                System.out.println("Spiel startet. Aktuelle Runde: " + Round.getInstance().getRound());
                 break;
             case 1, 2:
                 Round.getInstance().updateRound();
                 flipper.setState(new PlayingState(flipper));
-                System.out.println("Game started. Current round: " + Round.getInstance().getRound());
+                System.out.println("Spiel startet. Aktuelle Runde: " + Round.getInstance().getRound());
                 break;
             case 3:
                 if (Credit.getInstance().getCredit() > 0) {
@@ -43,9 +43,9 @@ public class ReadyState extends State {
                     Round.getInstance().updateRound();
                     Credit.getInstance().setCredit(-1);
                     flipper.setState(new PlayingState(flipper));
-                    System.out.println("A new game has started. Current round: " + Round.getInstance().getRound());
+                    System.out.println("Sie haben ein neues Spiel gestartet. Aktuelle Runde: " + Round.getInstance().getRound());
                 } else {
-                    System.out.println("You don't have enough credits to start a new game.");
+                    System.out.println("Sie haben nicht genügend Credits, um ein neues Spiel zu starten. Um weiterzuspielen, werfen Sie bitte noch eine Münze ein.");
                     flipper.setState(new NoCreditState(flipper));
                 }
                 break;
