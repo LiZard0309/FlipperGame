@@ -32,14 +32,12 @@ public class ReadyState extends State {
                 flipper.setState(new PlayingState(flipper));
                 System.out.println("Game started. Current round: " + Round.getInstance().getRound());
                 break;
-            case 1, 2, 3:
+            case 1, 2:
                 Round.getInstance().updateRound();
                 flipper.setState(new PlayingState(flipper));
-                System.out.println("Game started. Current round: " + Round.getInstance().getRound()); // TODO: Hier sehe ich einen möglichen Bug:
-                //Weil in Runde 3 läuft ja noch ein gültiges Spiel an. Aber wenn du die Runde zuerst updatest und DANN die Print-Ausgabe machst, dann sagt die jetzt ja, dass gerade Runde 4 läuft
-                //--> Print einfach in der Reihenfolge vor das .updateRound() setzen?
+                System.out.println("Game started. Current round: " + Round.getInstance().getRound());
                 break;
-            case 4:
+            case 3:
                 if (Credit.getInstance().getCredit() > 0) {
                     Round.getInstance().resetRound();
                     Round.getInstance().updateRound();
