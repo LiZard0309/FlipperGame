@@ -34,7 +34,7 @@ public class Target extends FlipperElement{
     }
 
     private int triggerBallMovement() {
-        int nextIndex = new Random().nextInt(9); // Random index from 0 to 8
+        int nextIndex = new Random().nextInt(6); // Random index from 0 to 6
         System.out.println("Ball bewegt sich zu Element: " + nextIndex);
         return nextIndex;
     }
