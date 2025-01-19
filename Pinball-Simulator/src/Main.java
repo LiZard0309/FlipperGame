@@ -7,27 +7,25 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        List<FlipperElement> elements = new ArrayList<>(); //Ich geb die mal hier in die Main, aber ich glaube das wäre wahrscheinlich besser eine Property von der Klasse Flipper?
-        TargetGroupMediator mediator = new TargetGroupMediator(elements);
 
-        //Instantiating the FlipperElements (Components?)
-        BallDrain balldrain = new BallDrain();
-        Target target1 = new Target(mediator);
-        Target target2 = new Target(mediator);
-        Target target3 = new Target(mediator);
-        Ramp ramp1 = new Ramp();
-        Ramp ramp2 = new Ramp();
+        // Observable list of elements
+        ElementsList elements = new ElementsList();
+        //Mediator - registered as an observer
+        TargetGroupMediator mediator = new TargetGroupMediator();
+        elements.addObserver(mediator);
 
-        //Adding all the elements to the ArrayList of FlipperElements
-        elements.add(balldrain); //index=0
-        elements.add(target1); //index=1
-        elements.add(target2); //index=2
-        elements.add(target3); //index=3
-        elements.add(ramp1); //index=4
-        elements.add(ramp2); //index=5
+        // Create and add elements to the list
+        elements.addElement(new BallDrain()); //index 0
+        elements.addElement(new Target(mediator)); //index 1
+        elements.addElement(new Target(mediator)); //index 2
+        elements.addElement(new Target(mediator)); //index 3
+        elements.addElement(new Ramp()); //index 4
+        elements.addElement(new Ramp()); //index 5
+
+        System.out.println("elements.size: " + elements.size());
 
         //Start Game Play
-        System.out.println("Bitte geben Sie zum Starten eine Zahl zwischen 0 und 5 ein.");
+        System.out.printf("Bitte geben Sie zum Starten eine Zahl zwischen 0 und %d ein. \n", elements.size()-1);
         int currentIndex = scanner.nextInt();
 
         // Validate initial input
@@ -37,7 +35,7 @@ public class Main {
             // Game loop starts after initial input
             while (true) {
                 // Trigger hit() on the current element
-                int nextIndex = elements.get(currentIndex).hit();
+                int nextIndex = elements.getElement(currentIndex).hit();
 
                 // Check for end condition (e.g., BallDrain)
                 if (nextIndex == -1) { // -1 indicates the ball drain was hit
@@ -46,7 +44,7 @@ public class Main {
                 }
 
                 // Move to the next element
-                System.out.println("Ball bewegt sich zu Element " + nextIndex + "...");
+                //System.out.println("Ball bewegt sich zu Element " + nextIndex + "...");
                 currentIndex = nextIndex;
             }
         }

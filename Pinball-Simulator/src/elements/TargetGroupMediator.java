@@ -1,20 +1,21 @@
 package elements;
+
+import java.util.ArrayList;
 import java.util.List;
+
 import score.Score;
 
-public class TargetGroupMediator implements Mediator{
-    private List<Target> targets;
-    private List<Ramp> ramps;
+public class TargetGroupMediator implements Mediator, Observer {
+    private final List<Target> targets = new ArrayList<>();
+    private final List<Ramp> ramps = new ArrayList<>();
 
-    public TargetGroupMediator(List<FlipperElement> elements) {
-        this.targets = elements.stream()
-                .filter(e -> e instanceof Target)
-                .map(e -> (Target) e)
-                .toList(); // Extract targets
-        this.ramps = elements.stream()
-                .filter(e -> e instanceof Ramp)
-                .map(e -> (Ramp) e)
-                .toList(); // Extract ramps
+    @Override
+    public void update(FlipperElement element) {
+        if (element instanceof Target) {
+            targets.add((Target) element);
+        } else if (element instanceof Ramp) {
+            ramps.add((Ramp) element);
+        }
     }
 
     @Override
