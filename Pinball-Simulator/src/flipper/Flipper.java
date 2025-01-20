@@ -8,8 +8,8 @@ import java.util.Random;
 
 public class Flipper {
     private State state;
-    List<FlipperElement> elements = new ArrayList<>(); //Ich geb die mal hier in die Main, aber ich glaube das wäre wahrscheinlich besser eine Property von der Klasse Flipper?
-    TargetGroupMediator mediator = new TargetGroupMediator(elements);
+    ElementsList elements = new ElementsList();
+    TargetGroupMediator mediator = new TargetGroupMediator();
     ResetVisitor resetVisitor = new ResetVisitor();
 
     public Flipper() {
@@ -21,29 +21,20 @@ public class Flipper {
     }
 
     public void instantiateFlipperElements() {
-        //Instantiating the FlipperElements (Components?)
-        BallDrain balldrain = new BallDrain();
-        Target target1 = new Target(mediator);
-        Target target2 = new Target(mediator);
-        Target target3 = new Target(mediator);
-        Ramp ramp1 = new Ramp();
-        Ramp ramp2 = new Ramp();
-        Bumper bumper1 = new Bumper();
-        Bumper bumper2 = new Bumper();
-        Bumper bumper3 = new Bumper();
-        Hole hole = new Hole();
 
-        //Adding all the elements to the ArrayList of FlipperElements
-        elements.add(balldrain); //index=0
-        elements.add(target1); //index=1
-        elements.add(target2); //index=2
-        elements.add(target3); //index=3
-        elements.add(ramp1); //index=4
-        elements.add(ramp2);//index=5
-        elements.add(bumper1); //index=6
-        elements.add(bumper2); //index=7
-        elements.add(bumper3); //index=8
-        elements.add(hole);
+        elements.addObserver(mediator);
+
+        // Create and add elements to the list
+        elements.addElement(new BallDrain()); //index 0
+        elements.addElement(new Target(mediator)); //index 1
+        elements.addElement(new Target(mediator)); //index 2
+        elements.addElement(new Target(mediator)); //index 3
+        elements.addElement(new Ramp()); //index 4
+        elements.addElement(new Ramp()); //index 5
+        elements.addElement(new Bumper()); //index=6
+        elements.addElement(new Bumper()); //index=7
+        elements.addElement(new Bumper()); //index=8
+        elements.addElement(new Hole()); //index=9
     }
 
     public int getTotalAmountOfElements() {
@@ -51,7 +42,7 @@ public class Flipper {
     }
 
     public void resetGame(){
-        elements.forEach(element -> element.accept(resetVisitor));
+        elements.getElements().forEach(element -> element.accept(resetVisitor));
     }
 
 

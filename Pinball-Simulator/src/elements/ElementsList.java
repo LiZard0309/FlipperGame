@@ -28,6 +28,10 @@ public class ElementsList implements Observable{
         return elements.get(index);
     }
 
+    public List<FlipperElement> getElements(){
+        return elements;
+    }
+
     public int size() {
         return elements.size();
     }

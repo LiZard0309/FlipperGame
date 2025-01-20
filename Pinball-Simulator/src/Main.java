@@ -10,12 +10,15 @@ public class Main {
 
 
         Flipper flipper = new Flipper();
-        //flipper.instantiateFlipperElements();
-        flipper.testGame();
+        flipper.instantiateFlipperElements();
+
+       // flipper.testGame();
 
 
 
         Scanner scanner = new Scanner(System.in);
+
+        /*
         // Observable list of elements
         ElementsList elements = new ElementsList();
         //Mediator - registered as an observer
@@ -28,7 +31,7 @@ public class Main {
         elements.addElement(new Target(mediator)); //index 2
         elements.addElement(new Target(mediator)); //index 3
         elements.addElement(new Ramp()); //index 4
-        elements.addElement(new Ramp()); //index 5
+        elements.addElement(new Ramp()); //index 5*/
 
         //Start Game Play
         System.out.printf("Bitte geben Sie zum Starten eine Zahl zwischen 0 und %d ein. \n", elements.size()-1);
