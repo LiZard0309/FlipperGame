@@ -53,8 +53,9 @@ public class Flipper {
         System.out.println("Random number is " + randomNumber);
     }
 
-    public void playGameOne() {
+    public void playGame() {
         //TODO: ganz am Ende: tatsächlichen Spielablauf implementieren (mit drei Runden und Anfang (Credit-Einwurf etc.)
+        state.pressStart();
     }
 
     public void playGameTwo() {

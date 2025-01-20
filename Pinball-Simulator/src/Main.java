@@ -11,6 +11,7 @@ public class Main {
 
         Flipper flipper = new Flipper();
         flipper.instantiateFlipperElements();
+        flipper.playGame();
 
        // flipper.testGame();
 
@@ -18,11 +19,11 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        /*
+
         // Observable list of elements
         ElementsList elements = new ElementsList();
         //Mediator - registered as an observer
-        TargetGroupMediator mediator = new TargetGroupMediator();
+        /*TargetGroupMediator mediator = new TargetGroupMediator();
         elements.addObserver(mediator);
 
         // Create and add elements to the list
@@ -34,6 +35,7 @@ public class Main {
         elements.addElement(new Ramp()); //index 5*/
 
         //Start Game Play
+        //+++DIESER TEIL MUSS NOCH IN ANDERE CLASS ÜBERFÜHRT WERDEN (READY-STATE ODER FLIPPER)
         System.out.printf("Bitte geben Sie zum Starten eine Zahl zwischen 0 und %d ein. \n", elements.size()-1);
         int currentIndex = scanner.nextInt();
 
@@ -44,7 +46,7 @@ public class Main {
             // Game loop starts after initial input
             while (true) {
                 // Trigger hit() on the current element
-                int nextIndex = elements.getElement(currentIndex).hit();
+                int nextIndex = elements.getElement(currentIndex).hit(elements.size());
 
                 // Check for end condition (e.g., BallDrain)
                 if (nextIndex == -1) { // -1 indicates the ball drain was hit

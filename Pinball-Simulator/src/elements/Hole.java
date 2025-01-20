@@ -44,7 +44,7 @@ public class Hole extends FlipperElement {
     }
 
     @Override
-    public int hit() {
+    public int hit(int elementsSize) {
         int userInput = getUserInput();
         int randomInt = generateRandomNumber();
         if (userInput == randomInt) {
@@ -62,7 +62,7 @@ public class Hole extends FlipperElement {
             );
             Score.getInstance().updateScore(10);
         }
-        return triggerBallMovement();
+        return triggerBallMovement(elementsSize);
     }
 
     @Override
@@ -70,8 +70,8 @@ public class Hole extends FlipperElement {
 
     }
 
-    private int triggerBallMovement() {
-        int nextIndex = new Random().nextInt(flipper.getTotalAmountOfElements());
+    private int triggerBallMovement(int elementsSize) {
+        int nextIndex = new Random().nextInt(elementsSize);
         System.out.println("Triggering Ball Movement " + nextIndex);
         return nextIndex;
     }

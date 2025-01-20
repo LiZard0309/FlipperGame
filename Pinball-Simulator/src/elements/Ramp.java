@@ -8,7 +8,7 @@ public class Ramp extends FlipperElement {
     }
 
     @Override
-    public int hit() {
+    public int hit(int elementsSize) {
         return triggerBallMovement();
     }
 

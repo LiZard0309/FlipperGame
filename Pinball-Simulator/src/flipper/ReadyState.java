@@ -61,6 +61,9 @@ public class ReadyState extends State {
                 flipper.setState(new NoCreditState(flipper));
         }
 
+        //vermutlich hier (oder eine Ebene drüber im Flipper) den Code für Ablauf einer Runde siehe restliches Code-Snippet in Main
+        //für Länge von elements Array für Begrenzung random index zahl: siehe flipper.getTotalAmountOfElements()
+
     }
 
 

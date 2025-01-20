@@ -15,7 +15,7 @@ public class Bumper extends FlipperElement {
     }
 
     @Override
-    public int hit() {
+    public int hit(int elementsSize) {
        if (!lightOn) {
            lightOn = true;
            System.out.println("Inaktiven Bumper getroffen. Licht geht an, 5 Punkte werden vergeben.");
@@ -25,7 +25,7 @@ public class Bumper extends FlipperElement {
            System.out.println("Aktiven Bumper getroffen. Licht geht aus. 10 Punkte werden vergeben.");
            Score.getInstance().updateScore(10);
        }
-       return triggerBallMovement();
+       return triggerBallMovement(elementsSize);
     }
 
     @Override
@@ -37,8 +37,8 @@ public class Bumper extends FlipperElement {
         lightOn = false;
     }
 
-    private int triggerBallMovement() {
-        int nextIndex = new Random().nextInt(flipper.getTotalAmountOfElements());
+    private int triggerBallMovement(int elementsSize) {
+        int nextIndex = new Random().nextInt(elementsSize);
         System.out.println("Triggering Ball Movement " + nextIndex);
         return nextIndex;
         //TODO hier bei nextInt schauen, dass hier der Wert dann auch mit dem Observer zusammenspielt

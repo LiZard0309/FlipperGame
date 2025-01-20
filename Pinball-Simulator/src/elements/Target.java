@@ -12,7 +12,7 @@ public class Target extends FlipperElement{
     }
 
     @Override
-    public int hit(){
+    public int hit(int elementsSize){
         if(!lightOn) {
             lightOn = true;
             System.out.println("Inaktives Target getroffen, Licht geht an, 10 Punkte werden vergeben.");
@@ -22,7 +22,7 @@ public class Target extends FlipperElement{
             System.out.println("Aktives Target nochmal getroffen, Licht bleibt an, keine Punkte zu vergeben.");
         }
 
-        return triggerBallMovement();
+        return triggerBallMovement(elementsSize);
     }
 
     @Override
@@ -38,8 +38,8 @@ public class Target extends FlipperElement{
         this.lightOn = false; // Reset light to off
     }
 
-    private int triggerBallMovement() {
-        int nextIndex = new Random().nextInt(6); // Random index from 0 to 6
+    private int triggerBallMovement(int elementsSize) {
+        int nextIndex = new Random().nextInt(elementsSize); // Random index from 0 to 6
         //TODO? Hier gibt es ein bisschen einen Flaw in der Logik, weil das Element theoretisch auch sich selbst als nächstes Element auswählen kann... Aber ich würde das jetzt so lassen.
         System.out.println("Nächster Hit: Ball bewegt sich zu Element " + nextIndex);
         return nextIndex;
