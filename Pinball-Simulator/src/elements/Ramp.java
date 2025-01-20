@@ -12,6 +12,11 @@ public class Ramp extends FlipperElement {
         return triggerBallMovement();
     }
 
+    @Override
+    public void accept(ResetVisitor resetVisitor) {
+        resetVisitor.visit(this);
+    }
+
     private int triggerBallMovement() {
         int nextIndex;
         if (isUp) {
@@ -21,6 +26,10 @@ public class Ramp extends FlipperElement {
         }
 
         return nextIndex;
+    }
+
+    public void reset(){
+        isUp = false;
     }
 
     public void setRamp() {

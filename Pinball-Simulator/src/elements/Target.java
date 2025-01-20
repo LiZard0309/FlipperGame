@@ -24,6 +24,11 @@ public class Target extends FlipperElement{
         return triggerBallMovement();
     }
 
+    @Override
+    public void accept(ResetVisitor resetVisitor) {
+
+    }
+
     public boolean isLightOn() {
         return lightOn;
     }
@@ -36,5 +41,6 @@ public class Target extends FlipperElement{
         int nextIndex = new Random().nextInt(9); // Random index from 0 to 8
         System.out.println("Ball shot to next element! Element index no: " + nextIndex);
         return nextIndex;
+        //TODO nextInt über Observer/ElementsList.size holen?
     }
 }

@@ -5,4 +5,10 @@ public class BallDrain extends FlipperElement{
     public int hit(){
         return -1; //Platzhalter-Return
     }
+
+    @Override
+    public void accept(ResetVisitor resetVisitor) {
+        resetVisitor.visit(this);
+    }
+
 }

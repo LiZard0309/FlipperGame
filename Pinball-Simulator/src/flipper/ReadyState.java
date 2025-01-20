@@ -2,6 +2,7 @@ package flipper;
 
 import util.Credit;
 import util.Round;
+import util.Score;
 
 import java.sql.SQLOutput;
 
@@ -43,9 +44,13 @@ public class ReadyState extends State {
                     Round.getInstance().updateRound();
                     Credit.getInstance().setCredit(-1);
                     flipper.setState(new PlayingState(flipper));
+                    Score.getInstance().resetScore();
+                    flipper.resetGame(); //alle Elements werden auf den Ausgangszustand zurückgesetzt
                     System.out.println("Sie haben ein neues Spiel gestartet. Aktuelle Runde: " + Round.getInstance().getRound());
                 } else {
                     System.out.println("Sie haben nicht genügend Credits, um ein neues Spiel zu starten. Um weiterzuspielen, werfen Sie bitte noch eine Münze ein.");
+                    flipper.resetGame();
+                    Score.getInstance().resetScore();
                     flipper.setState(new NoCreditState(flipper));
                 }
                 break;
