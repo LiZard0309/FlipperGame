@@ -2,8 +2,7 @@ package elements;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import score.Score;
+import util.Score;
 
 public class TargetGroupMediator implements Mediator, Observer {
     private final List<Target> targets = new ArrayList<>();

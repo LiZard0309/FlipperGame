@@ -1,4 +1,4 @@
-package score;//Score.Score Class als Singleton
+package util;//Score.Score Class als Singleton
 
 public class Score {
 
@@ -23,5 +23,9 @@ public class Score {
 
     public int getScore() {
         return score;
+    }
+
+    public void resetScore(){
+        score = 0;
     }
 }

@@ -1,9 +1,5 @@
 package elements;
 
-import score.Score;
-
-import java.util.Random;
-
 public class Ramp extends FlipperElement {
     private boolean isUp;
 
@@ -14,6 +10,11 @@ public class Ramp extends FlipperElement {
     @Override
     public int hit() {
         return triggerBallMovement();
+    }
+
+    @Override
+    public void accept(ResetVisitor resetVisitor) {
+        resetVisitor.visit(this);
     }
 
     private int triggerBallMovement() {
@@ -27,6 +28,10 @@ public class Ramp extends FlipperElement {
         }
 
         return nextIndex;
+    }
+
+    public void reset(){
+        isUp = false;
     }
 
     public void setRamp() {
