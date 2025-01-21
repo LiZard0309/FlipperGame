@@ -1,13 +1,7 @@
 package flipper;
 
 import elements.*;
-import util.Credit;
-import util.Round;
-import util.Score;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Flipper {
@@ -64,15 +58,13 @@ public class Flipper {
         System.out.println("Herzlich Willkommen zu Flipper, einem interaktiven Spiel entworfen von Maria Feher-Lehrner und Lisa Hofbauer!");
         System.out.println("Um zu spielen, müssen Sie eine Münze einwerfen. Was möchten Sie tun?");
 
-        int userChoice = 0;
-
 
         for (int i = 0; i < 20; i++) {
 
             System.out.println("Drücken Sie '1' um ein Spiel zu starten, drücken Sie '2' um eine Münze einzuwerfen.");
 
             if (scanner.hasNextInt()) {
-                userChoice = scanner.nextInt();
+                int userChoice = scanner.nextInt();
 
                 if (userChoice == 1) {
                     state.pressStart();

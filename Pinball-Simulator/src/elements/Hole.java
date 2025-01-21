@@ -1,14 +1,11 @@
 package elements;
 
-import flipper.Flipper;
 import util.Score;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class Hole extends FlipperElement {
-
-    Flipper flipper;
 
     public Hole() {
 
@@ -30,7 +27,7 @@ public class Hole extends FlipperElement {
             System.out.println("Hole getroffen! Bitte geben Sie eine Nummer von 1 bis 5 ein: ");
             if (scanner.hasNextInt()) {
                 userInput = scanner.nextInt();
-                if (userInput <=5 && userInput >=1) {
+                if (userInput <= 5 && userInput >= 1) {
                     validInput = true;
                 } else {
                     System.out.println("Die Nummer muss zwischen 1 und 5 liegen.");

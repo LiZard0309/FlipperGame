@@ -89,6 +89,7 @@ public class ReadyState extends State {
         }
         Score.getInstance().resetScore();
         Round.getInstance().resetRound();
+        flipper.resetGame();
     }
 
 }
