@@ -23,11 +23,11 @@ public class Hole extends FlipperElement {
 
         Scanner scanner = new Scanner(System.in);
         int userInput = 0;
-        boolean validInput = true;
+        boolean validInput = false;
 
         //Loop until valid input is entered
         while (!validInput) {
-            System.out.println("Bitte geben Sie eine Nummer von 1 bis 5 ein: ");
+            System.out.println("Hole getroffen! Bitte geben Sie eine Nummer von 1 bis 5 ein: ");
             if (scanner.hasNextInt()) {
                 userInput = scanner.nextInt();
                 if (userInput <=5 && userInput >=1) {
@@ -50,14 +50,14 @@ public class Hole extends FlipperElement {
         int randomInt = generateRandomNumber();
         if (userInput == randomInt) {
             System.out.printf(
-                    "Eingegebene Nummer: %d. Generierte Nummer: %d. Die Nummern stimmen überein! Sie erhalten 50 Punkte!",
+                    "Eingegebene Nummer: %d. Generierte Nummer: %d. Die Nummern stimmen überein! Sie erhalten 50 Punkte!\n",
                     userInput,
                     randomInt
             );
             Score.getInstance().updateScore(50);
         } else {
             System.out.printf(
-                    "Eingegebene Nummer: %d. Generierte Nummer: %d. Die Nummern stimmen leider nicht überein. Sie erhalten 10 Punkte!",
+                    "Eingegebene Nummer: %d. Generierte Nummer: %d. Die Nummern stimmen leider nicht überein. Sie erhalten 10 Punkte!\n",
                     userInput,
                     randomInt
             );

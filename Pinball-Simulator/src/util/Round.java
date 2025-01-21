@@ -6,7 +6,7 @@ public class Round {
     private int round;
 
     private Round() {
-        this.round = 0;
+        this.round = 1;
     }
 
     public static Round getInstance() {
@@ -21,7 +21,7 @@ public class Round {
     }
 
     public void resetRound() {
-        round = 0;
+        round = 1;
     }
 
     public int getRound() {

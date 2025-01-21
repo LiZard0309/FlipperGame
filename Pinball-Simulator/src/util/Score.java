@@ -18,7 +18,7 @@ public class Score {
 
     public void updateScore(int points) {
         score += points;
-        System.out.println("Neuer Score! Aktuell: " + score);
+        System.out.println("Aktueller Score: " + score);
     }
 
     public int getScore() {
