@@ -23,14 +23,15 @@ public class Hole extends FlipperElement {
 
         Scanner scanner = new Scanner(System.in);
         int userInput = 0;
+        boolean validInput = true;
 
         //Loop until valid input is entered
-        while (true) {
+        while (!validInput) {
             System.out.println("Bitte geben Sie eine Nummer von 1 bis 5 ein: ");
             if (scanner.hasNextInt()) {
                 userInput = scanner.nextInt();
                 if (userInput <=5 && userInput >=1) {
-                    break;
+                    validInput = true;
                 } else {
                     System.out.println("Die Nummer muss zwischen 1 und 5 liegen.");
                 }

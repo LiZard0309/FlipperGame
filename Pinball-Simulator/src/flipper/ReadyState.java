@@ -5,6 +5,7 @@ import util.Round;
 import util.Score;
 
 import java.sql.SQLOutput;
+import java.util.Scanner;
 
 public class ReadyState extends State {
     private final Flipper flipper;
@@ -24,6 +25,7 @@ public class ReadyState extends State {
 
     @Override
     public void pressStart() {
+
 
         //TODO: Das müssen wir sicher noch einfacher machen
         switch (Round.getInstance().getRound()) {

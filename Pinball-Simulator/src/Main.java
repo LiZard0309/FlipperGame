@@ -13,11 +13,11 @@ public class Main {
         flipper.instantiateFlipperElements();
         flipper.playGame();
 
-       // flipper.testGame();
+       //flipper.testGame();
 
 
 
-        Scanner scanner = new Scanner(System.in);
+
 
 
         // Observable list of elements
@@ -34,32 +34,6 @@ public class Main {
         elements.addElement(new Ramp()); //index 4
         elements.addElement(new Ramp()); //index 5*/
 
-        //Start Game Play
-        //+++DIESER TEIL MUSS NOCH IN ANDERE CLASS ÜBERFÜHRT WERDEN (READY-STATE ODER FLIPPER)
-        System.out.printf("Bitte geben Sie zum Starten eine Zahl zwischen 0 und %d ein. \n", elements.size()-1);
-        int currentIndex = scanner.nextInt();
 
-        // Validate initial input
-        if (currentIndex < 0 || currentIndex >= elements.size()) {
-            System.out.println("Ungültige Eingabe. Spiel beendet.");
-        } else {
-            // Game loop starts after initial input
-            while (true) {
-                // Trigger hit() on the current element
-                int nextIndex = elements.getElement(currentIndex).hit(elements.size());
-
-                // Check for end condition (e.g., BallDrain)
-                if (nextIndex == -1) { // -1 indicates the ball drain was hit
-                    System.out.println("Spiel beendet. Danke fürs Spielen!");
-                    break;
-                }
-
-                // Move to the next element
-                //System.out.println("Ball bewegt sich zu Element " + nextIndex + "...");
-                currentIndex = nextIndex;
-            }
-        }
-
-        scanner.close();
     }
 }
