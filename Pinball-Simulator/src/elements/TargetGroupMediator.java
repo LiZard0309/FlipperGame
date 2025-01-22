@@ -19,7 +19,7 @@ public class TargetGroupMediator implements Mediator, Observer {
 
     @Override
     public void notifyTargetHit(Target target) {
-        // Check if all targets in the group have been hit
+        // Checks if all targets in the group have been hit
         boolean allTargetsHit = targets.stream().allMatch(Target::isLightOn);
 
         if (allTargetsHit) {
@@ -31,6 +31,6 @@ public class TargetGroupMediator implements Mediator, Observer {
         System.out.println("Alle Targets der Gruppe aktiv! 50 Bonuspunkte und Rampen werden umgestellt.");
         Score.getInstance().updateScore(50); // Adds bonus score
         ramps.forEach(Ramp::setRamp); // switches isUp boolean to opposite
-        targets.forEach(Target::reset);      // Resets all targets
+        targets.forEach(Target::reset); // Resets all targets
     }
 }

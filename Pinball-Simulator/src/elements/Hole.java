@@ -1,7 +1,6 @@
 package elements;
 
 import util.Score;
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -64,9 +63,7 @@ public class Hole extends FlipperElement {
     }
 
     @Override
-    public void accept(ResetVisitor resetVisitor) {
-
-    }
+    public void accept(ResetVisitor resetVisitor) {    }
 
     private int triggerBallMovement(int elementsSize) {
         int nextIndex = new Random().nextInt(elementsSize);

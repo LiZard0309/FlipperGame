@@ -40,9 +40,7 @@ public class Target extends FlipperElement{
 
     private int triggerBallMovement(int elementsSize) {
         int nextIndex = new Random().nextInt(elementsSize); // Random index from 0 to 6
-        //TODO? Hier gibt es ein bisschen einen Flaw in der Logik, weil das Element theoretisch auch sich selbst als nächstes Element auswählen kann... Aber ich würde das jetzt so lassen.
         System.out.println("Nächster Hit: Ball bewegt sich zu Element " + nextIndex);
         return nextIndex;
-        //TODO nextInt über Observer/ElementsList.size holen?
     }
 }

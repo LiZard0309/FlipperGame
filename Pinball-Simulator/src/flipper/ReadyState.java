@@ -3,8 +3,6 @@ package flipper;
 import util.Credit;
 import util.Round;
 import util.Score;
-
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class ReadyState extends State {
@@ -65,7 +63,7 @@ public class ReadyState extends State {
                 // Trigger hit() on the current element
                 int nextIndex = flipper.elements.getElement(currentIndex).hit(flipper.elements.size());
 
-                // Check for end condition (e.g., BallDrain)
+                // Check for end condition (BallDrain)
                 if (nextIndex == -1) { // -1 indicates the ball drain was hit
                     System.out.println("Runde " + Round.getInstance().getRound() + " beendet. Aktueller Score: " + Score.getInstance().getScore() + ".");
                     Round.getInstance().updateRound();
@@ -73,7 +71,6 @@ public class ReadyState extends State {
                 }
 
                 // Move to the next element
-                //System.out.println("Ball bewegt sich zu Element " + nextIndex + "...");
                 currentIndex = nextIndex;
             }
         }

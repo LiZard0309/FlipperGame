@@ -1,7 +1,6 @@
 package flipper;
 
 import elements.*;
-
 import java.util.Scanner;
 
 public class Flipper {

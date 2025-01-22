@@ -1,14 +1,11 @@
 package elements;
 
-import flipper.Flipper;
 import util.Score;
-
 import java.util.Random;
 
 public class Bumper extends FlipperElement {
 
     private boolean lightOn;
-    Flipper flipper;
 
     public Bumper() {
         this.lightOn = false;
@@ -41,6 +38,5 @@ public class Bumper extends FlipperElement {
         int nextIndex = new Random().nextInt(elementsSize);
         System.out.println("Triggering Ball Movement " + nextIndex);
         return nextIndex;
-        //TODO hier bei nextInt schauen, dass hier der Wert dann auch mit dem Observer zusammenspielt
     }
 }

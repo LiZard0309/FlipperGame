@@ -8,7 +8,6 @@ public class NoCreditState extends State{
 
     public NoCreditState(Flipper flipper) {
         this.flipper = flipper;
-
     }
 
     @Override
